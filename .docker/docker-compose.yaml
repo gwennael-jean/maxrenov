@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+    web:
+        build:
+            context: ./dockerfiles/web
+            args:
+                USER_ID: ${USER_ID:-0}
+                GROUP_ID: ${GROUP_ID:-0}
+        depends_on:
+            - database
+            - smtp
+        volumes:
+            - ${SOURCE_ROOT_FOLDER}:/app
+
+    database:
+        image: mysql:5.7
+        volumes:
+            - ./services/database/data:/var/lib/mysql
+            - ./services/database/import:/import
+        environment:
+            - "MYSQL_ROOT_PASSWORD=${BDD_MYSQL_ROOT_PASSWORD}"
+            - "MYSQL_USER=${BDD_MYSQL_USER}"
+            - "MYSQL_PASSWORD=${BDD_MYSQL_PASSWORD}"
+            - "MYSQL_DATABASE=${BDD_MYSQL_DATABASE}"
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        depends_on:
+            - database
+        environment:
+            - PMA_HOST=database
+
+    node:
+        build: ./dockerfiles/node
+        volumes:
+            - ${SOURCE_ROOT_FOLDER}:/app
+
+    smtp:
+        image: djfarrelly/maildev
+        restart: always

@@ -1,0 +1,5 @@
+tls:
+  certificates:
+    -
+      certFile: /etc/certs/maxrenov.local.pem
+      keyFile: /etc/certs/maxrenov.local-key.pem

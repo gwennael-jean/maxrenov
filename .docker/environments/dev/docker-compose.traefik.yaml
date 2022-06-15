@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  database:
+    labels:
+      - traefik.enable=false
+
+  web:
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.maxrenov_https.tls=true
+      - traefik.http.routers.maxrenov_https.rule=Host(`maxrenov.local`)
+      - traefik.http.routers.maxrenov_https.entryPoints=websecure
+
+  phpmyadmin:
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.maxrenov_phpmyadmin.tls=true
+      - traefik.http.routers.maxrenov_phpmyadmin.rule=Host(`phpmyadmin.maxrenov.local`)
+      - traefik.http.routers.maxrenov_phpmyadmin.entryPoints=websecure
+
+  node:
+    command: npm run watch
+
+  smtp:
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.maxrenov_maildev.tls=true
+      - traefik.http.routers.maxrenov_maildev.rule=Host(`maildev.maxrenov.local`)
+      - traefik.http.routers.maxrenov_maildev.entryPoints=websecure
+      - traefik.http.services.maxrenov_maildev.loadbalancer.server.port=80
+
+  traefik:
+    image: traefik:v2.3
+    ports:
+      - ${PORT_HTTP}:80
+      - ${PORT_HTTPS}:443
+      - ${PORT_TRAEFIK}:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./services/traefik/traefik.yaml:/etc/traefik/traefik.yaml:ro
+      - ./services/traefik/certs:/etc/certs/:ro
+      - ./services/traefik/confs:/etc/traefik/confs/:ro
