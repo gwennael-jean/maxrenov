@@ -6,6 +6,7 @@ services:
             args:
                 USER_ID: ${USER_ID:-0}
                 GROUP_ID: ${GROUP_ID:-0}
+        image: gjean76/php-symfony:8.1-apache
         depends_on:
             - database
             - smtp
