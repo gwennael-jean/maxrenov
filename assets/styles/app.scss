@@ -1,3 +1,33 @@
-body {
-    background-color: lightgray;
-}
+
+// Import settings and tools
+@import "settings/variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// Import generic
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+
+// Import elements
+@import "~bootstrap/scss/type";
+
+// Import objects
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+
+// Import components
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+
+// Import utilities
+@import "~bootstrap/scss/helpers/position";
+@import "~bootstrap/scss/utilities/api";
