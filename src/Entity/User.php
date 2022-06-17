@@ -27,11 +27,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isAdmin;
 
-    #[ORM\Column(type: 'simple_array')]
-    private array $roles = [];
+    #[ORM\Column(type: 'simple_array', nullable: true)]
+    private ?array $roles = [];
 
     #[ORM\Column(type: 'string')]
     private string $password;
+
+    private ?string $plainPassword;
 
     public function getId(): ?int
     {
@@ -102,13 +104,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
+
         $roles[] = 'ROLE_USER';
+
+        if ($this->isAdmin) {
+            $roles[] = 'ROLE_ADMIN';
+        }
 
         return array_unique($roles);
     }
 
-    public function setRoles(array $roles): self
+    public function setRoles(?array $roles): self
     {
         $this->roles = $roles;
 
