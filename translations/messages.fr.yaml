@@ -1,0 +1,17 @@
+# Admin
+Dashboard: Tableau de bord
+
+## Sidebar
+User List: Liste des utilisateurs
+
+## CRUD
+
+### Buttons
+User: Utilisateur
+
+### Table Headers
+ID: ID
+Firstname: Prénom
+Lastname: Nom
+Email: Email
+Is Admin: Est administrateur
