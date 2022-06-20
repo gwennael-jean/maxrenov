@@ -5,13 +5,11 @@ Dashboard: Tableau de bord
 User List: Liste des utilisateurs
 
 ## CRUD
-
-### Buttons
-User: Utilisateur
-
-### Table Headers
 ID: ID
+User: Utilisateur
+Users: Utilisateurs
 Firstname: Prénom
 Lastname: Nom
 Email: Email
 Is Admin: Est administrateur
+Show all: Voir tout
