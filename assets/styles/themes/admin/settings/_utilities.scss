@@ -1,0 +1,14 @@
+$utilities: map-merge($utilities,
+  (
+    "text": (
+      property: color,
+      class: text,
+      values: $custom-colors,
+    ),
+    "bg": (
+      property: background-color,
+      class: bg,
+      values: $custom-colors,
+    )
+  )
+);

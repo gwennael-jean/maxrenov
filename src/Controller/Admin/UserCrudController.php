@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
@@ -18,12 +19,13 @@ class UserCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id'),
-            TextField::new('firstname'),
-            TextField::new('lastname'),
-            EmailField::new('email'),
-            BooleanField::new('isAdmin'),
-        ];
+        if (Action::DETAIL === $pageName) {
+            yield IdField::new('id');
+        }
+
+        yield TextField::new('firstname');
+        yield TextField::new('lastname');
+        yield EmailField::new('email');
+        yield BooleanField::new('isAdmin');
     }
 }

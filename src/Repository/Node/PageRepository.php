@@ -39,6 +39,14 @@ class PageRepository extends ServiceEntityRepository
         }
     }
 
+    public function countAll(): int
+    {
+        return $this->createQueryBuilder('p')
+            ->select('count(p.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 //    /**
 //     * @return Page[] Returns an array of Page objects
 //     */

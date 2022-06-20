@@ -1,10 +1,11 @@
 
 // Import settings and tools
-@import "settings/variables";
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/utilities";
+
+@import "themes/maxrenov/settings/variables";
 
 // Import generic
 @import "~bootstrap/scss/root";

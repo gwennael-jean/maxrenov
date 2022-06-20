@@ -1,15 +1,23 @@
 # Admin
 Dashboard: Tableau de bord
+Show all: Voir tout
 
 ## Sidebar
 User List: Liste des utilisateurs
+Page List: Liste des pages
 
 ## CRUD
 ID: ID
+
 User: Utilisateur
 Users: Utilisateurs
+Page: Page
+Pages: Pages
+
 Firstname: Prénom
 Lastname: Nom
 Email: Email
 Is Admin: Est administrateur
-Show all: Voir tout
+Content: Contenu
+Title: Titre
+Body: Contenu

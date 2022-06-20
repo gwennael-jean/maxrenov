@@ -1,0 +1,11 @@
+// Import settings and tools
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+@import "themes/admin/settings/variables";
+@import "themes/admin/settings/utilities";
+
+// Import utilities
+@import "~bootstrap/scss/utilities/api";
