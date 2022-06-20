@@ -1,5 +1,13 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
 {% block main %}
-    Hello World !
+    <div class="row">
+        <div class="col col-sm-6 col-md-4 col-lg-4 col-xl-3">
+            {{ component('counter-card', {
+                icon: 'fa-users',
+                title: 'Users',
+                value: count.users,
+            }) }}
+        </div>
+    </div>
 {% endblock %}
