@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-header">
+        {% trans %}Version Management{% endtrans %}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-sm-8 text-start">
+                <i class="fa-brands fa-fw fa-php"></i>
+                <span class="fw-bold">
+                    {% trans %}PHP{% endtrans %}
+                </span>
+            </div>
+            <div class="col-12 col-sm-4 text-start text-sm-end">
+                {{ phpVersion }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8 text-start fw-bold">
+                <i class="fa-brands fa-fw fa-symfony"></i>
+                <span class="fw-bold">
+                    {% trans %}Symfony{% endtrans %}
+                </span>
+            </div>
+            <div class="col-12 col-sm-4 text-start text-sm-end">
+                {{ symfonyVersion }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8 text-start fw-bold">
+                <i class="fa-brands fa-fw fa-symfony"></i>
+                <span class="fw-bold">
+                    {% trans %}End of maintenance{% endtrans %}
+                </span>
+            </div>
+            <div class="col-12 col-sm-4 text-start text-sm-end">
+                {{ symfonyEndOfMaintenance }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8 text-start fw-bold">
+                <i class="fa-brands fa-fw fa-symfony"></i>
+                <span class="fw-bold">
+                    {% trans %}End of life{% endtrans %}
+                </span>
+            </div>
+            <div class="col-12 col-sm-4 text-start text-sm-end">
+                {{ symfonyEndOfLife }}
+            </div>
+        </div>
+    </div>
+</div>

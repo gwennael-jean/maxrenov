@@ -5,6 +5,7 @@ namespace App\Form\Security;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Event\PostSetDataEvent;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +19,7 @@ class LoginType extends AbstractType
             ->add('email', EmailType::class, [
                 'data' => $options['authenticationUtils']->getLastUsername()
             ])
-            ->add('password');
+            ->add('password', PasswordType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

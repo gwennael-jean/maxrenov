@@ -2,21 +2,37 @@
 
 {% block main %}
     <div class="row">
-        <div class="col col-sm-6 col-md-4 col-lg-4 col-xl-3">
-            {{ component('counter-card', {
-                bgColor: 'blue',
-                icon: 'fa-users',
-                title: 'Users',
-                value: count.users,
-            }) }}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+            <div class="mb-3">
+                {{ component('counter-card', {
+                    bgColor: 'blue',
+                    icon: 'fa-users',
+                    title: 'Users',
+                    value: count.users,
+                }) }}
+            </div>
         </div>
-        <div class="col col-sm-6 col-md-4 col-lg-4 col-xl-3">
-            {{ component('counter-card', {
-                bgColor: 'green',
-                icon: 'fa-file-lines',
-                title: 'Pages',
-                value: count.pages,
-            }) }}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+            <div class="mb-3">
+                {{ component('counter-card', {
+                    bgColor: 'green',
+                    icon: 'fa-file-lines',
+                    title: 'Pages',
+                    value: count.pages,
+                }) }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                {{ component('card-server') }}
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="mb-3">
+                {{ component('card-app-version') }}
+            </div>
         </div>
     </div>
 {% endblock %}
