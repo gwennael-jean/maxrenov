@@ -1,0 +1,22 @@
+.jumbotron {
+  background-size: cover;
+  background-position: center;
+  color: $white;
+
+  .shadow {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  > * {
+    padding: 5rem 0;
+  }
+
+  .jumbotron-title {
+    font-size: 3.5rem;
+  }
+
+  .jumbotron-text {
+    font-size: 1.2rem;
+    color: $gray-200;
+  }
+}
