@@ -26,6 +26,12 @@ Encore
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]',
+        pattern: /\.(png|jpg|jpeg)$/
+    })
+
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
