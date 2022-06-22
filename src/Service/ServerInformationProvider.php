@@ -22,21 +22,21 @@ class ServerInformationProvider
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getAvailableSpace(): string
+    public function getAvailableSpace(): float
     {
         if (null === $this->diskFreeSpace) {
             $this->diskFreeSpace = disk_free_space('/') ?? 0;
         }
 
-        return $this->getSymbolByQuantity($this->diskFreeSpace);
+        return $this->diskFreeSpace;
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getDatabaseUsedSpace(): string
+    public function getDatabaseUsedSpace(): float
     {
         if (null === $this->bddUsedSpace) {
             $this->bddUsedSpace = 0;
@@ -52,19 +52,19 @@ class ServerInformationProvider
             }
         }
 
-        return $this->getSymbolByQuantity($this->bddUsedSpace);
+        return $this->bddUsedSpace;
     }
 
     /**
-     * @return bool|float|string
+     * @return float
      */
-    public function getTotalSpace(): string
+    public function getTotalSpace(): float
     {
         if (null === $this->diskTotalSpace) {
-            $this->diskTotalSpace = disk_total_space('/');
+            $this->diskTotalSpace = disk_total_space('/') ?? 0;
         }
 
-        return $this->getSymbolByQuantity($this->diskTotalSpace);
+        return $this->diskTotalSpace;
     }
 
     public function getPercentAvailableSpace()
@@ -83,12 +83,5 @@ class ServerInformationProvider
         }
 
         return $this->percentAvailableSpace;
-    }
-
-    private function getSymbolByQuantity(float $bytes): string
-    {
-        $symbols = array('Octets', 'Ko', 'Mo', 'Go', 'To', 'Po', 'Eo', 'Zo', 'Yo');
-        $exp = floor(log($bytes) / log(1024));
-        return number_format($bytes / pow(1024, floor($exp)), 2, ',', ' ') . ' ' . $symbols[$exp];
     }
 }

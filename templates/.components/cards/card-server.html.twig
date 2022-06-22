@@ -11,7 +11,7 @@
                     Espace Disque
                 </td>
                 <td class="text-right">
-                    {{ diskAvailableSpace }} / {{ diskTotalSpace }}
+                    {{ diskAvailableSpace | byte_format }} / {{ diskTotalSpace | byte_format }}
                 </td>
             </tr>
             <tr>
@@ -24,9 +24,9 @@
                         <div class="progress-bar progress-bar-striped {{ progressbarBackgroundColor }}"
                              role="progressbar"
                              style="width: {{ percentAvailableSpace }}%;"
-                             aria-valuenow="{{ percentAvailableSpace | round(1) }}"
+                             aria-valuenow="{{ percentAvailableSpace | byte_format | round(1) }}"
                              aria-valuemin="0"
-                             aria-valuemax="100">{{ percentAvailableSpace | round(1) }}%
+                             aria-valuemax="100">{{ percentAvailableSpace | byte_format | round(1) }}%
                         </div>
                     </div>
                 </td>
@@ -37,7 +37,7 @@
                     Espace base de données
                 </td>
                 <td class="text-right">
-                    {{ databaseUsedSpace }}
+                    {{ databaseUsedSpace | byte_format }}
                 </td>
             </tr>
             </tbody>
