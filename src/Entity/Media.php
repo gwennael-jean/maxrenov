@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use App\EventListener\Media\UploadListener;
 use App\Repository\MediaRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: MediaRepository::class)]
+#[ORM\EntityListeners([UploadListener::class])]
 class Media
 {
     #[ORM\Id]

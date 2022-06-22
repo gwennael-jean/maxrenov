@@ -26,3 +26,7 @@ services:
     App\EventListener\User\ChangePasswordListener:
         tags:
             - { name: doctrine.orm.entity_listener }
+
+    App\EventListener\Media\UploadListener:
+        tags:
+            - { name: doctrine.orm.entity_listener }
