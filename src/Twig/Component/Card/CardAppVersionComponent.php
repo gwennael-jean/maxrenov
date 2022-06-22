@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Twig\Component;
+namespace App\Twig\Component\Card;
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
