@@ -3,14 +3,74 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <div class="jumbotron" style="background-image: url('/build/images/wallpaper.jpg')">
+    <div class="jumbotron mb-3" style="background-image: url('{{ asset('build/images/wallpaper.jpg') }}')">
         <div class="jumbotron-shadow">
             <div class="container text-center">
                 <h1 class="jumbotron-title">
                     Max'Renov
                 </h1>
                 <div class="jumbotron-text">
-                    Électricien
+                    Artisan électricien
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-bolt fa-3x"></i>
+                        <h5 class="card-title">Électricité</h5>
+                        <p class="card-text">
+                            Installation, dépannage et maintenance
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-house-fire fa-3x"></i>
+                        <h5 class="card-title">Chauffage</h5>
+                        <p class="card-text">
+                            Chauffage électrique et dèche serviette
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-wifi fa-3x"></i>
+                        <h5 class="card-title">Internet</h5>
+                        <p class="card-text">
+                            Câblage internet RJ45
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-phone fa-3x"></i>
+                        <h5 class="card-title">Téléphonie</h5>
+                        <p class="card-text">
+                            Câblage téléphonique RJ11
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-wind fa-3x"></i>
+                        <h5 class="card-title">VMC</h5>
+                        <p class="card-text">
+                            Installation et dépannage
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
