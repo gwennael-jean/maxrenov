@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Media;
 use App\Entity\Node\Page;
+use App\Entity\Service;
 use App\Entity\User;
 use App\Repository\Node\PageRepository;
 use App\Repository\UserRepository;
@@ -58,5 +59,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Content');
         yield MenuItem::linkToCrud('Page List', 'fas fa-file-lines', Page::class);
         yield MenuItem::linkToCrud('Media List', 'fa-solid fa-image', Media::class);
+        yield MenuItem::linkToCrud('Service List', 'fa-solid fa-person-digging', Service::class);
     }
 }
