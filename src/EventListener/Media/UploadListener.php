@@ -3,9 +3,6 @@
 namespace App\EventListener\Media;
 
 use App\Entity\Media;
-use App\Service\ImageManager;
-use App\Service\Media\MediaProviderFactory;
-use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -21,7 +18,16 @@ class UploadListener
 
     public function prePersist(Media $media)
     {
-        $this->uploadBinaryContent($media);
+        if ($media->getBinaryContent() instanceof UploadedFile) {
+            $this->uploadBinaryContent($media);
+        }
+    }
+
+    public function preUpdate(Media $media)
+    {
+        if ($media->getBinaryContent() instanceof UploadedFile) {
+            $this->uploadBinaryContent($media);
+        }
     }
 
     protected function uploadBinaryContent(Media $media)

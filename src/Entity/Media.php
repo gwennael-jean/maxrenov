@@ -17,13 +17,13 @@ class Media
     private int $id;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $context;
+    private ?string $context = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private string $name;
+    private ?string  $name = null;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private string $path;
+    private ?string  $path = null;
 
     private ?File $binaryContent;
 
@@ -81,6 +81,7 @@ class Media
     public function setBinaryContent(?File $binaryContent): self
     {
         $this->binaryContent = $binaryContent;
+        $this->name = null;
 
         return $this;
     }

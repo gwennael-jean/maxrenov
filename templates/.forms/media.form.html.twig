@@ -6,17 +6,20 @@
 {% block media_widget %}
     <div class="d-flex">
         <div class="flex-shrink-0">
-            {% set src = value is not null
+            {% set src = value is not null and value.path is not null
                 ? asset('uploads/' ~ media.context[value.context].path ~ '/' ~ value.path)
                 : 'https://dummyimage.com/150x150/cfcfcf/fff.jpg' %}
 
-            <img src="{{ src }}" alt="media">
+            <img src="{{ src }}" alt="media" width="150">
         </div>
         <div class="flex-grow-1 ms-3">
             {{ form_widget(form.binaryContent) }}
             {{ form_errors(form.binaryContent) }}
             {{ form_help(form) }}
-            {{ form_row(form.remove) }}
+
+            {% if form.remove is defined %}
+                {{ form_row(form.remove) }}
+            {% endif %}
         </div>
     </div>
 {% endblock %}
