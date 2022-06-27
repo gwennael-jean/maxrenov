@@ -16,6 +16,9 @@ class Media
     #[ORM\Column(type: 'integer')]
     private int $id;
 
+    #[ORM\Column(type: 'string', length: 50)]
+    private $context;
+
     #[ORM\Column(type: 'string', length: 255)]
     private string $name;
 
@@ -24,9 +27,26 @@ class Media
 
     private ?File $binaryContent;
 
+    public function __construct()
+    {
+        $this->context = 'default';
+    }
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getContext(): ?string
+    {
+        return $this->context;
+    }
+
+    public function setContext(string $context): self
+    {
+        $this->context = $context;
+
+        return $this;
     }
 
     public function getName(): ?string
@@ -58,9 +78,10 @@ class Media
         return $this->binaryContent;
     }
 
-    public function setBinaryContent(?File $binaryContent): Media
+    public function setBinaryContent(?File $binaryContent): self
     {
         $this->binaryContent = $binaryContent;
+
         return $this;
     }
 }

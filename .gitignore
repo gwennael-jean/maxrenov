@@ -10,6 +10,10 @@
 !/.docker/services/database/import/.gitkeep
 ###< Docker ###
 
+###> assets ###
+/public/uploads/
+###< assets ###
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
