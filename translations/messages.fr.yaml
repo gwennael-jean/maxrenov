@@ -5,6 +5,7 @@ Show all: Voir tout
 ## Sidebar
 User List: Liste des utilisateurs
 Page List: Liste des pages
+Media List: Liste des médias
 
 ## Dashboard
 Server Informations: Informations du serveur
@@ -22,6 +23,7 @@ Users: Utilisateurs
 Page: Page
 Pages: Pages
 
+Name: Nom
 Firstname: Prénom
 Lastname: Nom
 Email: Email
@@ -29,3 +31,5 @@ Is Admin: Est administrateur
 Content: Contenu
 Title: Titre
 Body: Contenu
+Media: Media
+Binary Content: Fichier
