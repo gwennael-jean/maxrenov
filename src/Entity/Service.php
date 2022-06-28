@@ -24,7 +24,7 @@ class Service
     #[ORM\Column(type: 'string', length: 100)]
     private ?string $description;
 
-    #[ORM\ManyToMany(targetEntity: Media::class)]
+    #[ORM\ManyToMany(targetEntity: Media::class, cascade: ['persist', 'remove'])]
     private Collection $medias;
 
     public function __construct()

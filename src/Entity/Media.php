@@ -81,7 +81,10 @@ class Media
     public function setBinaryContent(?File $binaryContent): self
     {
         $this->binaryContent = $binaryContent;
-        $this->name = null;
+
+        if (null !== $this->binaryContent) {
+            $this->name = null;
+        }
 
         return $this;
     }
