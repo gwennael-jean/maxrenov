@@ -10,8 +10,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ServiceCrudController extends AbstractCrudController
 {
@@ -30,19 +28,6 @@ class ServiceCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield FormField::addTab('Media');
-
-        yield CollectionField::new('medias')
-            ->setEntryIsComplex()
-            ->setEntryType(MediaType::class)
-            ->setFormTypeOption('entry_options', [
-                'required' => true,
-                'block_prefix' => 'custom_collection_entry',
-            ])
-            ->setCustomOption('accordion_title', "Tableau de bord")
-            ->allowAdd()
-            ->allowDelete();
-
         yield IdField::new('id')
             ->hideOnForm()
             ->hideOnIndex();
@@ -59,5 +44,15 @@ class ServiceCrudController extends AbstractCrudController
 
         yield TextField::new('description')
             ->setColumns('col-12');
+        yield FormField::addTab('Media');
+
+        yield CollectionField::new('medias')
+            ->setEntryType(MediaType::class)
+            ->setFormTypeOption('entry_options', [
+                'required' => true,
+                'block_prefix' => 'custom_collection_entry',
+            ])
+            ->allowAdd()
+            ->allowDelete();
     }
 }
