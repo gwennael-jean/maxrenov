@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Gallery;
 use App\Entity\Media;
 use App\Entity\Node\Page;
 use App\Entity\Service;
@@ -58,7 +59,10 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Content');
         yield MenuItem::linkToCrud('Page List', 'fas fa-file-lines', Page::class);
-        yield MenuItem::linkToCrud('Media List', 'fa-solid fa-image', Media::class);
         yield MenuItem::linkToCrud('Service List', 'fa-solid fa-person-digging', Service::class);
+
+        yield MenuItem::section('Media');
+        yield MenuItem::linkToCrud('Media List', 'fa-solid fa-image', Media::class);
+        yield MenuItem::linkToCrud('Gallery List', 'fa-solid fa-images', Gallery::class);
     }
 }
