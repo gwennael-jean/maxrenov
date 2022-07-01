@@ -18,7 +18,7 @@ class Gallery
     #[ORM\Column(type: 'string', length: 150)]
     private ?string $title = null;
 
-    #[ORM\ManyToMany(targetEntity: Media::class)]
+    #[ORM\ManyToMany(targetEntity: Media::class, cascade: ['persist'])]
     private Collection $medias;
 
     public function __construct()
