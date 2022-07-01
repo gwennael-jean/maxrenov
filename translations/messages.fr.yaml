@@ -6,6 +6,8 @@ Show all: Voir tout
 User List: Liste des utilisateurs
 Page List: Liste des pages
 Media List: Liste des médias
+Media Management: Gestion des médias
+Service List: Liste des services
 
 ## Dashboard
 Server Informations: Informations du serveur
@@ -22,6 +24,8 @@ User: Utilisateur
 Users: Utilisateurs
 Page: Page
 Pages: Pages
+Service: Service
+Services: Services
 
 Name: Nom
 Firstname: Prénom
@@ -33,3 +37,8 @@ Title: Titre
 Body: Contenu
 Media: Media
 Binary Content: Fichier
+Icon: Icône
+Description: Description
+
+## Help
+Icon name from http://fontawesome.com: Nom de l'icône sur <a href="https://fontawesome.com/search?m=free" target="_blank">fontawesome.com</a>

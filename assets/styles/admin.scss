@@ -7,5 +7,8 @@
 @import "themes/admin/settings/variables";
 @import "themes/admin/settings/utilities";
 
+// Components
+@import "themes/admin/components/accordion";
+
 // Import utilities
 @import "~bootstrap/scss/utilities/api";

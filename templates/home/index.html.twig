@@ -7,41 +7,15 @@
 
     <div class="container">
         <div class="d-flex justify-content-center row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                {{ component('card-service', {
-                    icon: 'fas fa-bolt',
-                    title: 'Électricité',
-                    text: 'Installation, dépannage et maintenance',
-                }) }}
-            </div>
-            <div class="col">
-                {{ component('card-service', {
-                    icon: 'fa-solid fa-house-fire',
-                    title: 'Chauffage',
-                    text: 'Chauffage électrique et dèche serviette',
-                }) }}
-            </div>
-            <div class="col">
-                {{ component('card-service', {
-                    icon: 'fa-solid fa-wifi',
-                    title: 'Internet',
-                    text: 'Câblage internet RJ45',
-                }) }}
-            </div>
-            <div class="col">
-                {{ component('card-service', {
-                    icon: 'fa-solid fa-phone',
-                    title: 'Téléphonie',
-                    text: 'Câblage téléphonique RJ11',
-                }) }}
-            </div>
-            <div class="col">
-                {{ component('card-service', {
-                    icon: 'fa-solid fa-wind',
-                    title: 'VMC',
-                    text: 'Installation et dépannage',
-                }) }}
-            </div>
+            {% for service in services %}
+                <div class="col">
+                    {{ component('card-service', {
+                        icon: service.icon,
+                        title: service.title,
+                        text: service.description,
+                    }) }}
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
