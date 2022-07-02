@@ -64,5 +64,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Media');
         yield MenuItem::linkToCrud('Media List', 'fa-solid fa-image', Media::class);
         yield MenuItem::linkToCrud('Gallery List', 'fa-solid fa-images', Gallery::class);
+
+        yield MenuItem::section('Parameters');
+        yield MenuItem::linkToRoute('Main Parameters', 'fa-solid fa-cogs', 'app_admin_parameters_index');
     }
 }
