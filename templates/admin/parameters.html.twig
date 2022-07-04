@@ -1,0 +1,17 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}
+    {% trans %}Main Parameters{% endtrans %}
+{% endblock %}
+
+{% block page_actions %}
+    <button class="btn btn-primary" type="submit" form="main-form">
+        {% trans %}Save{% endtrans %}
+    </button>
+{% endblock %}
+
+{% block main %}
+    {{ form_start(form, { attr: {id: 'main-form'}}) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}
