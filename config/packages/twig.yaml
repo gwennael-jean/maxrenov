@@ -9,7 +9,7 @@ twig:
         'templates/.forms': 'form'
 
     globals:
-        media: '%media%'
+        media_manager: '%media%'
 
 when@test:
     twig:
