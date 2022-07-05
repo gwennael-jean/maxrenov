@@ -8,5 +8,8 @@
 // any CSS you import will output into a single css file (app.scss in this case)
 import './styles/app.scss';
 
+import 'jquery';
+import 'bootstrap/dist/js/bootstrap';
+
 // start the Stimulus application
 import './bootstrap';

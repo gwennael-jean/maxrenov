@@ -1,0 +1,23 @@
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        {% for media in gallery.medias %}
+            <button type="button"
+                    data-bs-target="#carouselExampleControls"
+                    class="{{ loop.first ? 'active' : '' }}"
+                    data-bs-slide-to="{{ loop.index - 1 }}"></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% for media in gallery.medias %}
+            <div class="carousel-item {{ loop.first ? 'active' : '' }}">
+                <img src="{{ asset('uploads/' ~ media_manager.context[media.context].path ~ '/' ~ media.path) }}" class="d-block w-100" />
+            </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <i class="fas fa-2x fa-chevron-left"></i>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <i class="fas fa-2x fa-chevron-right"></i>
+    </button>
+</div>
