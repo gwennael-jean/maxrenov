@@ -14,7 +14,7 @@ class ParameterFixtures extends Fixture implements DependentFixtureInterface
     {
         $this->saveDefaultParameters($manager);
         $this->saveContactParameters($manager);
-        $this->saveReseauSociauxParameters($manager);
+        $this->saveSocialNetworksParameters($manager);
 
         $manager->flush();
     }
@@ -46,20 +46,20 @@ class ParameterFixtures extends Fixture implements DependentFixtureInterface
             ->setValue('07.61.43.52.52'));
     }
 
-    protected function saveReseauSociauxParameters(ObjectManager $manager): void
+    protected function saveSocialNetworksParameters(ObjectManager $manager): void
     {
         $manager->persist((new Parameter())
-            ->setDomain('reseau_social')
+            ->setDomain('social_network')
             ->setName('twitter')
             ->setValue(null));
 
         $manager->persist((new Parameter())
-            ->setDomain('reseau_social')
+            ->setDomain('social_network')
             ->setName('facebook')
             ->setValue('Maxrenov-104385878487047'));
 
         $manager->persist((new Parameter())
-            ->setDomain('reseau_social')
+            ->setDomain('social_network')
             ->setName('instagram')
             ->setValue(null));
     }
