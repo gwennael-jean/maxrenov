@@ -1,0 +1,17 @@
+.footer {
+  background-color: $gray-900;
+  color: $white;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
+  .icon-rs {
+    color: $gray-900 !important;
+  }
+}

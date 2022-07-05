@@ -1,7 +1,4 @@
 .jumbotron {
-  background-size: cover;
-  background-position: center;
-  color: $white;
 
   .shadow {
     background-color: rgba(0, 0, 0, 0.2);
@@ -18,5 +15,11 @@
   .jumbotron-text {
     font-size: 1.2rem;
     color: $gray-200;
+  }
+
+  &.home-jumbotron {
+    background-size: cover;
+    background-position: center;
+    color: $white;
   }
 }
