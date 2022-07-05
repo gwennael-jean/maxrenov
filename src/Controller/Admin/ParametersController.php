@@ -2,7 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Form\Parameter\ContactParameterType;
 use App\Form\Parameter\MainParameterType;
+use App\Form\Parameter\SocialNetworkParameterType;
 use App\Service\ParameterStorage;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,8 +20,8 @@ class ParametersController extends AbstractController
     {
     }
 
-    #[Route('/admin/parameters', name: 'app_admin_parameters_index')]
-    public function index(Request $request)
+    #[Route('/admin/parameters/default', name: 'app_admin_parameters_default')]
+    public function default(Request $request)
     {
         $data = $this->parameterStorage->getByDomain('default');
 
@@ -31,10 +33,55 @@ class ParametersController extends AbstractController
             $this->parameterStorage->save('default', $form->getData());
 
             $this->addFlash('success', 'Successfully saved parameters');
-            return $this->redirect($this->adminUrlGenerator->setRoute('app_admin_parameters_index')->generateUrl());
+            return $this->redirect($this->adminUrlGenerator->setRoute('app_admin_parameters_default')->generateUrl());
         }
 
         return $this->render('admin/parameters.html.twig', [
+            'title' => "Main Parameters",
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/admin/parameters/contact', name: 'app_admin_parameters_contact')]
+    public function contact(Request $request)
+    {
+        $data = $this->parameterStorage->getByDomain('contact');
+
+        $form = $this->createForm(ContactParameterType::class, $data);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->parameterStorage->save('contact', $form->getData());
+
+            $this->addFlash('success', 'Successfully saved parameters');
+            return $this->redirect($this->adminUrlGenerator->setRoute('app_admin_parameters_contact')->generateUrl());
+        }
+
+        return $this->render('admin/parameters.html.twig', [
+            'title' => "Contact Parameters",
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/admin/parameters/rs', name: 'app_admin_parameters_rs')]
+    public function socialNetwork(Request $request)
+    {
+        $data = $this->parameterStorage->getByDomain('social_network');
+
+        $form = $this->createForm(SocialNetworkParameterType::class, $data);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->parameterStorage->save('social_network', $form->getData());
+
+            $this->addFlash('success', 'Successfully saved parameters');
+            return $this->redirect($this->adminUrlGenerator->setRoute('app_admin_parameters_rs')->generateUrl());
+        }
+
+        return $this->render('admin/parameters.html.twig', [
+            'title' => "Social Networks Parameters",
             'form' => $form->createView()
         ]);
     }

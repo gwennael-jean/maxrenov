@@ -11,6 +11,8 @@ Service List: Liste des services
 Gallery List: Liste des galeries
 Parameters: Paramètres
 Main Parameters: Paramètres principaux
+Contact Parameters: Paramètres de contact
+Social Networks Parameters: Paramètres réseaux sociaux
 
 ## Dashboard
 Server Informations: Informations du serveur
@@ -55,3 +57,11 @@ Successfully saved parameters: Paramètres sauvegardés avec succès
 ## Help
 Icon name from http://fontawesome.com: Nom de l'icône sur <a href="https://fontawesome.com/search?m=free" target="_blank">fontawesome.com</a>
 Select gallery for homepage ...: Sélectionnez la galerie pour la page d'accueil...
+Set your email ...: Indiquez votre email...
+Set your phone number ...: Indiquez votre numéro de téléphone...
+Set your twitter account ...: Indiquez votre compte Twitter...
+Set your facebook account ...: Indiquez votre compte Facebook...
+Set your instagram account ...: Indiquez votre compte Instagram...
+"Example : in the https://twitter.com/XYZ, your account is XYZ": "Exemple : dans https://twitter.com/XYZ, votre compte est XYZ"
+"Example : in the https://www.facebook.com/XYZ, your account is XYZ": "Exemple : dans https://www.facebook.com/XYZ, votre compte est XYZ"
+"Example : in the https://www.instagram.com/XYZ, your account is XYZ": "Exemple : dans https://www.instagram.com/XYZ, votre compte est XYZ"

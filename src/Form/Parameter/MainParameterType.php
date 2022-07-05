@@ -10,11 +10,11 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MainParameterType extends AbstractType
 {
-    private $parameterGlobalTransformer;
+    private ParameterTransformer $parameterTransformer;
 
-    public function __construct(MainParameterTransformer $parameterGlobalTransformer)
+    public function __construct(ParameterTransformer $parameterTransformer)
     {
-        $this->parameterGlobalTransformer = $parameterGlobalTransformer;
+        $this->parameterTransformer = $parameterTransformer;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -27,7 +27,7 @@ class MainParameterType extends AbstractType
                 'required' => false,
             ]);
 
-        $builder->addModelTransformer($this->parameterGlobalTransformer);
+        $builder->addModelTransformer($this->parameterTransformer);
     }
 
     public function configureOptions(OptionsResolver $resolver)
