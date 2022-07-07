@@ -20,6 +20,7 @@
         "symfony/mime": "6.1.*",
         "symfony/proxy-manager-bridge": "6.1.*",
         "symfony/runtime": "6.1.*",
+        "symfony/serializer": "6.1.*",
         "symfony/twig-bundle": "6.1.*",
         "symfony/ux-twig-component": "^2.2",
         "symfony/webpack-encore-bundle": "^1.14",
