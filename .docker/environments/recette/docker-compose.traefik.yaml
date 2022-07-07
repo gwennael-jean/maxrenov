@@ -1,0 +1,47 @@
+version: "3.9"
+services:
+  database:
+    labels:
+      - traefik.enable=false
+    networks:
+      - default
+
+  web:
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.maxrenov_https.tls=true
+      - traefik.http.routers.maxrenov_https.tls.certresolver=letsEncrypt
+      - traefik.http.routers.maxrenov_https.rule=Host(`maxrenov.gwennael-jean.ovh`)
+      - traefik.http.routers.maxrenov_https.entryPoints=websecure
+      - traefik.http.routers.maxrenov_http.rule=Host(`maxrenov.gwennael-jean.ovh`)
+      - traefik.http.routers.maxrenov_http.entryPoints=web
+      - traefik.docker.network=proxy
+    networks:
+      - default
+      - proxy
+
+  phpmyadmin:
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.maxrenov_phpmyadmin.rule=Host(`phpmyadmin.maxrenov.gwennael-jean.ovh`)
+      - traefik.http.routers.maxrenov_phpmyadmin.entryPoints=web
+      - traefik.docker.network=proxy
+    networks:
+      - default
+      - proxy
+
+  smtp:
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.maxrenov_maildev.rule=Host(`maildev.maxrenov.gwennael-jean.ovh`)
+      - traefik.http.routers.maxrenov_maildev.entryPoints=web
+      - traefik.http.services.maxrenov_maildev.loadbalancer.server.port=80
+      - traefik.docker.network=proxy
+    networks:
+      - default
+      - proxy
+
+networks:
+  proxy:
+    external:
+      name: proxy
