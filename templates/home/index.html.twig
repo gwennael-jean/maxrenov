@@ -3,11 +3,11 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <div class="mb-3">
+    <div class="mb-5">
         {{ component('home-jumbotron') }}
     </div>
 
-    <div class="mb-3">
+    <div class="mb-5">
         <div class="container">
             <div class="d-flex justify-content-center row row-cols-1 row-cols-md-3 g-4">
                 {% for service in services %}
@@ -23,11 +23,11 @@
         </div>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-5">
         {{ component('gallery-slideshow', { gallery: gallery }) }}
     </div>
 
-    <div class="mb-3">
+    <div class="mb-5">
         <div class="container">
             {{ component('google-review') }}
         </div>
