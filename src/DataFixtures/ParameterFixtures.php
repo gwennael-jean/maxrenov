@@ -15,6 +15,7 @@ class ParameterFixtures extends Fixture implements DependentFixtureInterface
         $this->saveDefaultParameters($manager);
         $this->saveContactParameters($manager);
         $this->saveSocialNetworksParameters($manager);
+        $this->saveGoogleReviewParameters($manager);
 
         $manager->flush();
     }
@@ -62,6 +63,19 @@ class ParameterFixtures extends Fixture implements DependentFixtureInterface
             ->setDomain('social_network')
             ->setName('instagram')
             ->setValue(null));
+    }
+
+    protected function saveGoogleReviewParameters(ObjectManager $manager): void
+    {
+        $manager->persist((new Parameter())
+            ->setDomain('google_review')
+            ->setName('googleReviewAPIKey')
+            ->setValue(null));
+
+        $manager->persist((new Parameter())
+            ->setDomain('google_review')
+            ->setName('googleReviewPlaceId')
+            ->setValue('ChIJkZ97ULz54EcRK0zK1Tk9BeY'));
     }
 
     public function getDependencies(): array

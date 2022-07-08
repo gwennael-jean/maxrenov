@@ -3,11 +3,15 @@
 namespace App\Service\GoogleReview;
 
 use App\Service\GoogleReview\Model\GoogleReview;
+use App\Validator\GoogleReview as GoogleReviewConstraint;
 use App\Service\GoogleReview\Normalizer\GoogleReviewNormalizer;
+use App\Service\ParameterStorage;
+use App\Validator\GoogleReviewValidator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class GoogleReviewProvider
@@ -20,19 +24,27 @@ class GoogleReviewProvider
 
     private const URL = "https://maps.googleapis.com/maps/api/place/details/json?key=%s&placeid=%s";
 
-    public function __construct(private HttpClientInterface $client)
+    public function __construct(
+        private HttpClientInterface $client,
+        private ValidatorInterface $validator,
+        private ParameterStorage $parameterStorage
+    )
     {
         $this->serializer = new Serializer([new GoogleReviewNormalizer()], [new JsonEncoder()]);
-        $this->apiKey = 'AIzaSyAJ7NZEpSyXlgn-qMEqgo5FwTgv3m5JvXk';
-        $this->placeId = 'ChIJkZ97ULz54EcRK0zK1Tk9BeY';
+        $this->apiKey = $parameterStorage->get('googleReviewAPIKey');
+        $this->placeId = $parameterStorage->get('googleReviewPlaceId');
     }
 
     public function getData(): ?GoogleReview
     {
         $response = $this->client->request(Request::METHOD_GET, sprintf(self::URL, $this->apiKey, $this->placeId));
 
-        return Response::HTTP_OK === $response->getStatusCode()
-            ? $this->serializer->deserialize($response->getContent(), GoogleReview::class, 'json')
-            : null;
+        if (Response::HTTP_OK === $response->getStatusCode()) {
+            $googleReview = $this->serializer->deserialize($response->getContent(), GoogleReview::class, 'json');
+
+            return $this->validator->validate($googleReview, new GoogleReviewConstraint())
+                ? $googleReview
+                : null;
+        }
     }
 }

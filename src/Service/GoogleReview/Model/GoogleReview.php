@@ -6,6 +6,10 @@ class GoogleReview
 {
     private Result $result;
 
+    private ?string $errorMessage = null;
+
+    private ?string $status = null;
+
     private ?int $countReview = null;
 
     private ?float $ratingAverage = null;
@@ -29,9 +33,9 @@ class GoogleReview
         return $this->countReview;
     }
 
-    public function getRatingAverage(): float
+    public function getRatingAverage(): ?float
     {
-        if (null === $this->ratingAverage) {
+        if (null === $this->ratingAverage && count($this->getResult()->getReviews()) > 0) {
             foreach ($this->result->getReviews() as $review) {
                 $this->ratingAverage += $review->getRating();
             }
@@ -50,5 +54,28 @@ class GoogleReview
             return '<i class="fa-solid fa-fw fa-star-half"></i>';
         }
         return '';
+    }
+
+    public function getErrorMessage(): ?string
+    {
+        return $this->errorMessage;
+    }
+
+    public function setErrorMessage(?string $errorMessage): self
+    {
+        $this->errorMessage = $errorMessage;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): GoogleReview
+    {
+        $this->status = $status;
+        return $this;
     }
 }
