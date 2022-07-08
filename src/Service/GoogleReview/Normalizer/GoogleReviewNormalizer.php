@@ -18,7 +18,7 @@ class GoogleReviewNormalizer implements DenormalizerInterface
         $result = new GoogleReview();
 
         foreach ($data['result']['reviews'] as $reviewData) {
-            $result->result->addReview((new Review())
+            $result->getResult()->addReview((new Review())
                 ->setAuthorName($reviewData['author_name'])
                 ->setAuthorUrl($reviewData['author_url'])
                 ->setLanguage($reviewData['language'])
