@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Form\Parameter\ContactParameterType;
+use App\Form\Parameter\GoogleReviewParameterType;
 use App\Form\Parameter\MainParameterType;
 use App\Form\Parameter\SocialNetworkParameterType;
 use App\Service\ParameterStorage;
@@ -82,6 +83,28 @@ class ParametersController extends AbstractController
 
         return $this->render('admin/parameters.html.twig', [
             'title' => "Social Networks Parameters",
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/admin/parameters/google-review', name: 'app_admin_parameters_google_review')]
+    public function googleReview(Request $request)
+    {
+        $data = $this->parameterStorage->getByDomain('google_review');
+
+        $form = $this->createForm(GoogleReviewParameterType::class, $data);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->parameterStorage->save('google_review', $form->getData());
+
+            $this->addFlash('success', 'Successfully saved parameters');
+            return $this->redirect($this->adminUrlGenerator->setRoute('app_admin_parameters_google_review')->generateUrl());
+        }
+
+        return $this->render('admin/parameters.html.twig', [
+            'title' => "Google Review Parameters",
             'form' => $form->createView()
         ]);
     }

@@ -11,8 +11,13 @@ Service List: Liste des services
 Gallery List: Liste des galeries
 Parameters: Paramètres
 Main Parameters: Paramètres principaux
+Main: Principaux
 Contact Parameters: Paramètres de contact
+Contact: Contact
 Social Networks Parameters: Paramètres réseaux sociaux
+Social Networks: Réseaux sociaux
+Google Review Parameters: Paramètres Google Review
+Google Review: Google Review
 
 ## Dashboard
 Server Informations: Informations du serveur
@@ -51,6 +56,9 @@ Description: Description
 
 Home gallery: Galerie d'accueil
 
+Google review API key: Clé API Google Review
+Google review place id: Place ID Google Review
+
 ## Flash Message
 Successfully saved parameters: Paramètres sauvegardés avec succès
 
@@ -62,6 +70,8 @@ Set your phone number ...: Indiquez votre numéro de téléphone...
 Set your twitter account ...: Indiquez votre compte Twitter...
 Set your facebook account ...: Indiquez votre compte Facebook...
 Set your instagram account ...: Indiquez votre compte Instagram...
+Set your API key ...: Indiquez votre clé API...
+Set your place ID ...: Indiquez votre place ID...
 "Example : in the https://twitter.com/XYZ, your account is XYZ": "Exemple : dans https://twitter.com/XYZ, votre compte est XYZ"
 "Example : in the https://www.facebook.com/XYZ, your account is XYZ": "Exemple : dans https://www.facebook.com/XYZ, votre compte est XYZ"
 "Example : in the https://www.instagram.com/XYZ, your account is XYZ": "Exemple : dans https://www.instagram.com/XYZ, votre compte est XYZ"

@@ -66,8 +66,12 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Gallery List', 'fa-solid fa-images', Gallery::class);
 
         yield MenuItem::section('Parameters');
-        yield MenuItem::linkToRoute('Main Parameters', 'fa-solid fa-cogs', 'app_admin_parameters_default');
-        yield MenuItem::linkToRoute('Contact Parameters', 'fa-solid fa-cogs', 'app_admin_parameters_contact');
-        yield MenuItem::linkToRoute('Social Networks Parameters', 'fa-solid fa-cogs', 'app_admin_parameters_rs');
+
+        yield MenuItem::subMenu('Parameters', 'fa-solid fa-cogs')->setSubItems([
+            MenuItem::linkToRoute('Main', null, 'app_admin_parameters_default'),
+            MenuItem::linkToRoute('Contact', null, 'app_admin_parameters_contact'),
+            MenuItem::linkToRoute('Social Networks', null, 'app_admin_parameters_rs'),
+            MenuItem::linkToRoute('Google Review', null, 'app_admin_parameters_google_review'),
+        ]);
     }
 }
