@@ -56,7 +56,7 @@ class InitCommand extends Command
         $minutes = floor($seconds / 60);
         $rest = floor($seconds - ($minutes * 60));
 
-        $io->success(sprintf("Execution time : %dh %dm", $minutes, $rest));
+        $io->success(sprintf("Execution time : %dmin %dsec", $minutes, $rest));
 
         return Command::SUCCESS;
     }
