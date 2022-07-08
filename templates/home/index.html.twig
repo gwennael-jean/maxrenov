@@ -3,31 +3,39 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <div class="mb-3">
+    <div class="mb-5">
         {{ component('home-jumbotron') }}
     </div>
 
-    <div class="mb-3">
-        <div class="container">
-            <div class="d-flex justify-content-center row row-cols-1 row-cols-md-3 g-4">
-                {% for service in services %}
-                    <div class="col">
-                        {{ component('card-service', {
-                            icon: service.icon,
-                            title: service.title,
-                            text: service.description,
-                        }) }}
-                    </div>
-                {% endfor %}
+    <div class="mb-5">
+        <div class="bloc">
+            <div class="container">
+                <h2 class="title">Mes Services</h2>
+                <div class="d-flex justify-content-center row row-cols-1 row-cols-md-3 g-4">
+                    {% for service in services %}
+                        <div class="col">
+                            {{ component('card-service', {
+                                icon: service.icon,
+                                title: service.title,
+                                text: service.description,
+                            }) }}
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="mb-3">
-        {{ component('gallery-slideshow', { gallery: gallery }) }}
+    <div class="mb-5">
+        <div class="bloc">
+            <div class="container">
+                <h2 class="title">Mes Réalisations</h2>
+            </div>
+            {{ component('gallery-slideshow', { gallery: gallery }) }}
+        </div>
     </div>
 
-    <div class="mb-3">
+    <div class="mb-5">
         <div class="container">
             {{ component('google-review') }}
         </div>
