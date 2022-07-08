@@ -1,0 +1,12 @@
+.card.card-connexion {
+  max-width: 500px;
+  margin: 3rem auto 5rem auto;
+
+  .card-title {
+    text-align: center;
+  }
+
+  @include media-breakpoint-down(xs) {
+    margin: 1rem auto 0 auto;
+  }
+}
