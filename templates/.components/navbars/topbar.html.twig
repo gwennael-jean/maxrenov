@@ -1,0 +1,23 @@
+<nav class="topbar navbar" data-controller="topbar" data-topbar-scroll-value="200">
+    <div class="container">
+        <a class="navbar-brand" href="{{ path('app_home') }}">
+            <img src="{{ asset('images/logo-topbar.png') }}" alt="Logo">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">
+                        {% trans %}Home{% endtrans %}
+                    </a>
+                </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ path('admin') }}">
+                            {% trans %}Admin{% endtrans %}
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
