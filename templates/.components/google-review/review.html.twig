@@ -10,9 +10,11 @@
                         {{ review.authorName }}
                     </a>
                 </h5>
-                <small class="text-muted">
-                    {{review.rating | round }} / 5
-                </small>
+                <div class="mb-2">
+                    <small class="text-muted stars">
+                        {{ rating_star(review.rating, 5) }}
+                    </small>
+                </div>
                 <p class="card-text">{{review.text }}</p>
             </div>
         </div>

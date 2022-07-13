@@ -1,9 +1,9 @@
 {% if googleReview.ratingAverage is not null %}
-    <div class="d-flex">
-        <div class="me-3 flex-shrink-1">
+    <div class="google-review d-flex flex-column flex-md-row align-items-center">
+        <div class="me-md-3 flex-shrink-1">
             {% include "@component/google-review/rating-average.html.twig" with { googleReview } only %}
         </div>
-        <div class="ms-3 w-100">
+        <div class="ms-md-3 w-100">
             <div class="row row-cols-1 row-cols-lg-3 g-4">
                 {% for review in googleReview.result.reviews | slice(0, 3) %}
                     <div class="col">
