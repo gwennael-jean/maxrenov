@@ -1,20 +1,16 @@
 {% if googleReview.ratingAverage is not null %}
-    <div class="d-flex flex-column align-items-center">
-        <div>
-            <img src="{{ asset('images/google.png') }}" width="130px"/>
+    <div class="google-review d-flex flex-column flex-md-row align-items-center">
+        <div class="mb-3 mb-md-0 me-md-3 flex-shrink-1">
+            {% include "@component/google-review/rating-average.html.twig" with { googleReview } only %}
         </div>
-        <div class="fs-1">
-            {{ googleReview.ratingAverage | number_format(1, ',') }}
-        </div>
-        <div class="d-flex flex-row fs-4" style="color: #F4B400">
-            {{ googleReview.getIconStar(1) | raw }}
-            {{ googleReview.getIconStar(2) | raw }}
-            {{ googleReview.getIconStar(3) | raw }}
-            {{ googleReview.getIconStar(4) | raw }}
-            {{ googleReview.getIconStar(5) | raw }}
-        </div>
-        <div class="fs-5">
-             {{ googleReview.CountReview }} avis
+        <div class="ms-md-3 w-100">
+            <div class="row row-cols-1 row-cols-lg-3 g-4">
+                {% for review in googleReview.result.reviews | slice(0, 3) %}
+                    <div class="col">
+                        {% include "@component/google-review/review.html.twig" with { review } only %}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endif %}

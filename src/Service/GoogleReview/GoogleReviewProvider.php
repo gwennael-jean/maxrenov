@@ -6,7 +6,6 @@ use App\Service\GoogleReview\Model\GoogleReview;
 use App\Validator\GoogleReview as GoogleReviewConstraint;
 use App\Service\GoogleReview\Normalizer\GoogleReviewNormalizer;
 use App\Service\ParameterStorage;
-use App\Validator\GoogleReviewValidator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -22,7 +21,7 @@ class GoogleReviewProvider
 
     private ?string $placeId;
 
-    private const URL = "https://maps.googleapis.com/maps/api/place/details/json?key=%s&placeid=%s";
+    private const URL = "https://maps.googleapis.com/maps/api/place/details/json?key=%s&placeid=%s&language=fr";
 
     public function __construct(
         private HttpClientInterface $client,
@@ -37,7 +36,7 @@ class GoogleReviewProvider
 
     public function getData(): ?GoogleReview
     {
-        $response = $this->client->request(Request::METHOD_GET, sprintf(self::URL, $this->apiKey, $this->placeId));
+        $response = $this->client->request(Request::METHOD_GET, $this->getUrl());
 
         if (Response::HTTP_OK === $response->getStatusCode()) {
             $googleReview = $this->serializer->deserialize($response->getContent(), GoogleReview::class, 'json');
@@ -46,5 +45,10 @@ class GoogleReviewProvider
                 ? $googleReview
                 : null;
         }
+    }
+
+    private function getUrl(): string
+    {
+        return sprintf(self::URL, $this->apiKey, $this->placeId);
     }
 }

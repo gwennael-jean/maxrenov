@@ -10,3 +10,17 @@
     margin: 1rem auto 0 auto;
   }
 }
+
+.card.card-review {
+  .card-title {
+    a {
+      text-decoration: none;
+      color: $main;
+    }
+  }
+
+  .card-footer {
+    background: inherit;
+    border-top: 0;
+  }
+}
