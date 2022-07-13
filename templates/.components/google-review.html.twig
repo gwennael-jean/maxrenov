@@ -1,6 +1,6 @@
 {% if googleReview.ratingAverage is not null %}
     <div class="google-review d-flex flex-column flex-md-row align-items-center">
-        <div class="me-md-3 flex-shrink-1">
+        <div class="mb-3 mb-md-0 me-md-3 flex-shrink-1">
             {% include "@component/google-review/rating-average.html.twig" with { googleReview } only %}
         </div>
         <div class="ms-md-3 w-100">
