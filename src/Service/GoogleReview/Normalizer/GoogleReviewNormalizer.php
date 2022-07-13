@@ -26,6 +26,11 @@ class GoogleReviewNormalizer implements DenormalizerInterface
         }
 
         if (isset($data['result']) && isset($data['result']['reviews'])) {
+
+            usort($data['result']['reviews'], function (array $a, array $b) {
+                return $a['time'] < $b['time'];
+            });
+
             foreach ($data['result']['reviews'] as $reviewData) {
                 $result->getResult()->addReview((new Review())
                     ->setAuthorName($reviewData['author_name'])

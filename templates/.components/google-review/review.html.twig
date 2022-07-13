@@ -1,0 +1,20 @@
+<div class="card h-100 card-review">
+    <div class="card-body">
+        <div class="d-flex">
+            <div class="p-2 flex-shrink-1">
+                <img src="{{ review.profilePhotoUrl }}" width="50px"/>
+            </div>
+            <div class="p-2 w-100">
+                <h5 class="card-title">
+                    <a href="{{ review.authorUrl }}">
+                        {{ review.authorName }}
+                    </a>
+                </h5>
+                <small class="text-muted">
+                    {{review.rating | round }} / 5
+                </small>
+                <p class="card-text">{{review.text }}</p>
+            </div>
+        </div>
+    </div>
+</div>
