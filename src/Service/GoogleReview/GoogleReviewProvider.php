@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class GoogleReviewProvider
@@ -23,10 +25,13 @@ class GoogleReviewProvider
 
     private const URL = "https://maps.googleapis.com/maps/api/place/details/json?key=%s&placeid=%s&language=fr";
 
+    private const CACHE_TIME = 86400;
+
     public function __construct(
         private HttpClientInterface $client,
         private ValidatorInterface $validator,
-        private ParameterStorage $parameterStorage
+        private CacheInterface $cache,
+        ParameterStorage $parameterStorage
     )
     {
         $this->serializer = new Serializer([new GoogleReviewNormalizer()], [new JsonEncoder()]);
@@ -36,15 +41,23 @@ class GoogleReviewProvider
 
     public function getData(): ?GoogleReview
     {
-        $response = $this->client->request(Request::METHOD_GET, $this->getUrl());
+        return $this->cache->get('google.review', function (ItemInterface $item) {
+            $item->expiresAfter(self::CACHE_TIME);
 
-        if (Response::HTTP_OK === $response->getStatusCode()) {
-            $googleReview = $this->serializer->deserialize($response->getContent(), GoogleReview::class, 'json');
+            dump('cache miss');
 
-            return $this->validator->validate($googleReview, new GoogleReviewConstraint())
-                ? $googleReview
-                : null;
-        }
+            $response = $this->client->request(Request::METHOD_GET, $this->getUrl());
+
+            if (Response::HTTP_OK === $response->getStatusCode()) {
+                $googleReview = $this->serializer->deserialize($response->getContent(), GoogleReview::class, 'json');
+
+                return $this->validator->validate($googleReview, new GoogleReviewConstraint())
+                    ? $googleReview
+                    : null;
+            }
+
+            return null;
+        });
     }
 
     private function getUrl(): string

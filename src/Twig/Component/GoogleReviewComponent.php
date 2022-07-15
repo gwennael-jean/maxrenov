@@ -9,7 +9,7 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('google-review', template: '.components/google-review.html.twig')]
 class GoogleReviewComponent
 {
-    public GoogleReview $googleReview;
+    public ?GoogleReview $googleReview;
 
     public function __construct(GoogleReviewProvider $googleReviewProvider)
     {
