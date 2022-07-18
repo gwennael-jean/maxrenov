@@ -10,6 +10,20 @@
                         {% trans %}Home{% endtrans %}
                     </a>
                 </li>
+
+                {% if app.request.get('_route') == 'app_home' %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#mes-services">
+                            {% trans %}My services{% endtrans %}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#mes-realisations">
+                            {% trans %}My achievements{% endtrans %}
+                        </a>
+                    </li>
+                {% endif %}
+
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ path('admin') }}">
