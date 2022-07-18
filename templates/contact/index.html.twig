@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+<div class="mt-5">
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">
+            {% trans %}Send{% endtrans %}
+        </button>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}
