@@ -2,6 +2,11 @@
 Home: Accueil
 My services: Mes services
 My achievements: Mes réalisations
+Subject: Sujet
+Email: Email
+Phone: Téléphone
+Message: Message
+Send: Envoyer
 
 # Admin
 Dashboard: Tableau de bord
@@ -50,7 +55,6 @@ Galleries: Galeries
 Name: Nom
 Firstname: Prénom
 Lastname: Nom
-Email: Email
 Is Admin: Est administrateur
 Content: Contenu
 Title: Titre
