@@ -37,4 +37,4 @@ services:
             - ${SOURCE_ROOT_FOLDER}:/app
 
     smtp:
-        image: djfarrelly/maildev
+        image: schickling/mailcatcher
