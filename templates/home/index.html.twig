@@ -10,7 +10,9 @@
     <div class="mb-5">
         <div class="bloc">
             <div class="container">
-                <h2 class="title">Mes Services</h2>
+                <h2 id="mes-services" class="title">
+                    {% trans %}My services{% endtrans %}
+                </h2>
                 <div class="d-flex justify-content-center row row-cols-1 row-cols-md-3 g-4">
                     {% for service in services %}
                         <div class="col">
@@ -29,7 +31,9 @@
     <div class="mb-5">
         <div class="bloc">
             <div class="container">
-                <h2 class="title">Mes Réalisations</h2>
+                <h2 id="mes-realisations" class="title">
+                    {% trans %}My achievements{% endtrans %}
+                </h2>
             </div>
             {{ component('gallery-slideshow', { gallery: gallery }) }}
         </div>
