@@ -15,15 +15,19 @@
                     <ul class="list-unstyled mb-0">
                         {% if mail is not empty %}
                             <li>
-                                <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i>
-                                maxrenov76@outlook.fr
+                                <a href="mailto:{{ mail }}">
+                                    <i class="fa-solid fa-fw fa-envelope" aria-hidden="true"></i>
+                                    {{ mail }}
+                                </a>
                             </li>
                         {% endif %}
 
                         {% if tel is not empty %}
                             <li>
-                                <i class="fa-solid fa-fw fa-phone" aria-hidden="true"></i>
-                                07.61.43.52.52
+                                <a href="tel:{{ tel | format_tel }}">
+                                    <i class="fa-solid fa-fw fa-phone" aria-hidden="true"></i>
+                                    {{ tel }}
+                                </a>
                             </li>
                         {% endif %}
                     </ul>
