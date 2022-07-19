@@ -33,7 +33,9 @@ class ParameterTransformer implements DataTransformerInterface
 
         foreach ($parameters as $parameter) {
             switch ($parameter->getName()) {
-                case 'homeJumbotronBackground': $data[$parameter->getName()] = null;
+                case 'homeJumbotronBackground':
+                case 'homeJumbotronTitleImage':
+                    $data[$parameter->getName()] = null;
                     break;
                 case 'homeGallery':
                     $data[$parameter->getName()] = null !== $parameter->getValue()
@@ -54,6 +56,7 @@ class ParameterTransformer implements DataTransformerInterface
         foreach ($data as $key => $value) {
             switch ($key) {
                 case 'homeJumbotronBackground':
+                case 'homeJumbotronTitleImage':
                         $data[$key] = $value instanceof UploadedFile
                             ? $this->saveFile($key, $value)
                             : $this->parameterStorage->get($key);
@@ -62,6 +65,10 @@ class ParameterTransformer implements DataTransformerInterface
                     $data[$key] = $value?->getId();
                     break;
             }
+        }
+
+        if (!!$data['removeHomeJumbotronTitleImage']) {
+            $data['homeJumbotronTitleImage'] = null;
         }
 
         return $data;

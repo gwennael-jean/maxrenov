@@ -21,6 +21,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'jumbotron' => [
                 'background' => $parameterStorage->get('homeJumbotronBackground'),
+                'titleImage' => $parameterStorage->get('homeJumbotronTitleImage'),
                 'title' => $parameterStorage->get('homeJumbotronTitle'),
                 'subtitle' => $parameterStorage->get('homeJumbotronSubtitle'),
             ],

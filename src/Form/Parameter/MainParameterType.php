@@ -6,6 +6,7 @@ use App\Entity\Gallery;
 use App\Form\MediaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,11 +27,18 @@ class MainParameterType extends AbstractType
             ->add('homeJumbotronBackground', FileType::class, [
                 'required' => false,
             ])
+            ->add('homeJumbotronTitleImage', FileType::class, [
+                'required' => false,
+            ])
+            ->add('removeHomeJumbotronTitleImage', CheckboxType::class, [
+                'required' => false,
+                'data' => false,
+            ])
             ->add('homeJumbotronTitle', TextType::class, [
                 'required' => true,
             ])
             ->add('homeJumbotronSubtitle', TextType::class, [
-                'required' => true,
+                'required' => false,
             ])
             ->add('homeGallery', EntityType::class, [
                 'placeholder' => 'Select gallery for homepage ...',

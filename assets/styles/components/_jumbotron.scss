@@ -10,7 +10,13 @@
   }
 
   .jumbotron-title {
+    padding: 0 1rem;
     font-size: 3.5rem;
+
+    img {
+      max-width: 100%;
+      max-height: 250px;
+    }
   }
 
   .jumbotron-text {
@@ -18,7 +24,7 @@
     color: $gray-200;
   }
 
-  &.home-jumbotron {
+  &.main-jumbotron {
     background-size: cover;
     background-position: center;
     color: $white;

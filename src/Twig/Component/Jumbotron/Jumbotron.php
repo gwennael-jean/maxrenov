@@ -8,7 +8,11 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('jumbotron', template: '.components/jumbotrons/jumbotron.html.twig')]
 class Jumbotron
 {
-    public ?string $image = null;
+    public ?string $class = null;
+
+    public ?string $background = null;
+
+    public ?string $titleImage = null;
 
     public string $title;
 

@@ -3,7 +3,9 @@
 {% block body %}
     <div class="mb-5">
         {{ component('jumbotron', {
-            image: jumbotron.background,
+            class: 'main-jumbotron',
+            background: jumbotron.background,
+            titleImage: jumbotron.titleImage,
             title: jumbotron.title,
             subtitle: jumbotron.subtitle,
         }) }}
