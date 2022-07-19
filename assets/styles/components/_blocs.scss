@@ -1,9 +1,10 @@
 .bloc {
 
   .title {
+    font-weight: bold;
+    text-transform: uppercase;
     width: max-content;
     margin: 0 auto 1.5rem auto;
     padding: 0 1rem 0.5rem;
-    border-bottom: 1px solid;
   }
 }
