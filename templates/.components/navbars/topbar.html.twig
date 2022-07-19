@@ -6,19 +6,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">
+                    <a class="nav-link" aria-current="page" href="{{ path('app_home') }}">
                         {% trans %}Home{% endtrans %}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ path('app_contact') }}">
+                        {% trans %}Contact{% endtrans %}
                     </a>
                 </li>
 
                 {% if app.request.get('_route') == 'app_home' %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#mes-services">
+                        <a class="nav-link" aria-current="page" href="#mes-services">
                             {% trans %}My services{% endtrans %}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#mes-realisations">
+                        <a class="nav-link" aria-current="page" href="#mes-realisations">
                             {% trans %}My achievements{% endtrans %}
                         </a>
                     </li>
@@ -26,7 +31,7 @@
 
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ path('admin') }}">
+                        <a class="nav-link" aria-current="page" href="{{ path('admin') }}">
                             {% trans %}Admin{% endtrans %}
                         </a>
                     </li>

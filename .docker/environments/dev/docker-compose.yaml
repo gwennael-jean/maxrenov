@@ -17,4 +17,4 @@ services:
 
   smtp:
     ports:
-      - ${PORT_MAILDEV}:80
+      - ${PORT_MAILDEV}:1080

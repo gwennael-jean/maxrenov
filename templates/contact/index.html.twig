@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+    <div class="mb-5">
+        {{ component('jumbotron', {
+            image: asset('build/images/jumbotron/jumbotron-contact.jpg'),
+            title: 'Contactez-moi',
+        }) }}
+    </div>
+    <div class="mt-5">
+        <div class="container">
+            <p class="mb-3 fs-4">
+                Besoin d'un renseignement ? un devis ? une question ?<br/>
+                N'hésitez pas à me contacter !
+            </p>
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-12">
+                    {{ form_row(form.subject) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.firstname) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.lastname) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.email) }}
+                </div>
+                <div class="col-12 col-md-6">
+                    {{ form_row(form.phone) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    {{ form_row(form.message) }}
+                </div>
+            </div>
+            <div class="mt-2 text-center">
+                <button type="submit" class="btn btn-primary">
+                    {% trans %}Send{% endtrans %}
+                </button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

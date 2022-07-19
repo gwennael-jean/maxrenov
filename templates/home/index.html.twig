@@ -4,7 +4,11 @@
 
 {% block body %}
     <div class="mb-5">
-        {{ component('home-jumbotron') }}
+        {{ component('jumbotron', {
+            image: asset('build/images/wallpaper.jpg'),
+            title: "Max'Renov",
+            subtitle: "Artisan électricien",
+        }) }}
     </div>
 
     <div class="mb-5">
