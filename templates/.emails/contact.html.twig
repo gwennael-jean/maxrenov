@@ -1,13 +1,40 @@
-<div>
-    Prise de contact de {{ contact.firstname }} {{ contact.lastname }}
+<div style="max-width: 550px; margin: auto; font-family: sans-serif;">
+    <table>
+        <tr>
+            <td colspan="2" style="text-align: center; padding: 0.5rem;">
+                <h1>On vous contact !</h1>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0.5rem;">
+                <strong>Nom:</strong>
+                {{ contact.lastname }}
+            </td>
+            <td style="padding: 0.5rem;">
+                <strong>Prénom:</strong>
+                {{ contact.firstname }}
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 0.5rem;">
+                <strong>Email:</strong>
+                {{ contact.email }}
+            </td>
+            <td style="padding: 0.5rem;">
+                <strong>Tél:</strong>
+                {{ contact.phone }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding: 0.5rem;">
+                <strong>Sujet:</strong>
+                {{ contact.subject }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding: 0.5rem;">
+                {{ contact.message }}
+            </td>
+        </tr>
+    </table>
 </div>
-<p>
-    <strong>{{ contact.subject }}</strong>
-</p>
-<p>
-    {{ contact.message }}
-</p>
-<ul>
-    <li>Adresse email : {{ contact.email }}</li>
-    <li>Téléphone : {{ contact.phone }}</li>
-</ul>
