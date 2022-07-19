@@ -3,8 +3,11 @@
 namespace App\Form\Parameter;
 
 use App\Entity\Gallery;
+use App\Form\MediaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,6 +23,15 @@ class MainParameterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('homeJumbotronBackground', FileType::class, [
+                'required' => false,
+            ])
+            ->add('homeJumbotronTitle', TextType::class, [
+                'required' => true,
+            ])
+            ->add('homeJumbotronSubtitle', TextType::class, [
+                'required' => true,
+            ])
             ->add('homeGallery', EntityType::class, [
                 'placeholder' => 'Select gallery for homepage ...',
                 'class' => Gallery::class,

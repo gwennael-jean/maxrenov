@@ -1,4 +1,4 @@
-<div class="jumbotron home-jumbotron" style="background-image: url('{{ image }}')">
+<div class="jumbotron home-jumbotron" {% if image is not null %}style="background-image: url('{{ image }}')"{% endif %}>
     <div class="jumbotron-shadow">
         <div class="container text-center">
             <h1 class="jumbotron-title">
