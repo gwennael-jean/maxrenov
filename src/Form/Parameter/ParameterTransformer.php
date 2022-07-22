@@ -67,8 +67,12 @@ class ParameterTransformer implements DataTransformerInterface
             }
         }
 
-        if (!!$data['removeHomeJumbotronTitleImage']) {
+        if (isset($data['removeHomeJumbotronTitleImage']) && !!$data['removeHomeJumbotronTitleImage']) {
             $data['homeJumbotronTitleImage'] = null;
+        }
+
+        if (isset($data['removeHomeJumbotronTitleImage'])) {
+            unset($data['removeHomeJumbotronTitleImage']);
         }
 
         return $data;

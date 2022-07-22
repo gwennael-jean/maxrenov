@@ -29,6 +29,11 @@ class ParameterFixtures extends Fixture implements DependentFixtureInterface
 
         $manager->persist((new Parameter())
             ->setDomain('default')
+            ->setName('homeJumbotronTitleImage')
+            ->setValue(null));
+
+        $manager->persist((new Parameter())
+            ->setDomain('default')
             ->setName('homeJumbotronTitle')
             ->setValue("Max'Renov"));
 
