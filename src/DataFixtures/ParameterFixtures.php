@@ -22,15 +22,28 @@ class ParameterFixtures extends Fixture implements DependentFixtureInterface
 
     protected function saveDefaultParameters(ObjectManager $manager): void
     {
+        $manager->persist((new Parameter())
+            ->setDomain('default')
+            ->setName('homeJumbotronBackground')
+            ->setValue(null));
+
+        $manager->persist((new Parameter())
+            ->setDomain('default')
+            ->setName('homeJumbotronTitle')
+            ->setValue("Max'Renov"));
+
+        $manager->persist((new Parameter())
+            ->setDomain('default')
+            ->setName('homeJumbotronSubtitle')
+            ->setValue("Artisan Électricien"));
+
         $gallery = $manager->getRepository(Gallery::class)->findOneByTitle('Home');
 
         if (null !== $gallery) {
-            $parameter = (new Parameter())
+            $manager->persist((new Parameter())
                 ->setDomain('default')
                 ->setName('homeGallery')
-                ->setValue($gallery->getId());
-
-            $manager->persist($parameter);
+                ->setValue($gallery->getId()));
         }
     }
 

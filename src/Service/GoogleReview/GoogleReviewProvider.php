@@ -44,8 +44,6 @@ class GoogleReviewProvider
         return $this->cache->get('google.review', function (ItemInterface $item) {
             $item->expiresAfter(self::CACHE_TIME);
 
-            dump('cache miss');
-
             $response = $this->client->request(Request::METHOD_GET, $this->getUrl());
 
             if (Response::HTTP_OK === $response->getStatusCode()) {

@@ -65,6 +65,7 @@ class InitCommand extends Command
     {
         if ($this->kernel->getEnvironment() !== 'test') {
             $folders = [
+                $this->kernel->getProjectDir() . '/public/' . $this->parameterBag->get('public_file_upload_directory'),
                 $this->parameterBag->get('media')['path'],
             ];
 

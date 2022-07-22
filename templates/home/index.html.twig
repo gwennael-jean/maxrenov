@@ -3,9 +3,11 @@
 {% block body %}
     <div class="mb-5">
         {{ component('jumbotron', {
-            image: asset('build/images/wallpaper.jpg'),
-            title: "Max'Renov",
-            subtitle: "Artisan électricien",
+            class: 'main-jumbotron',
+            background: jumbotron.background,
+            titleImage: jumbotron.titleImage,
+            title: jumbotron.title,
+            subtitle: jumbotron.subtitle,
         }) }}
     </div>
 
