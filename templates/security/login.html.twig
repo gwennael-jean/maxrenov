@@ -2,6 +2,12 @@
 
 {% block title %}Connexion | {{ parent() }}{% endblock %}
 
+{% block topbar %}
+    {{ component('topbar', {
+        scrollable: false,
+    }) }}
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <div class="card card-connexion">

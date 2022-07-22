@@ -12,14 +12,19 @@ import {Controller} from '@hotwired/stimulus';
 export default class extends Controller {
 
     static values = {
-        scroll: {type: Number, default: 100}
+        scroll: {type: Number, default: 100},
+        scrollable: {type: Boolean, default: true},
     }
 
     connect() {
-        window.addEventListener('scroll', (e) => {
-            window.scrollY > this.scrollValue
-                ? this.element.classList.add('scrolled')
-                : this.element.classList.remove('scrolled');
-        });
+        if (this.scrollableValue) {
+            window.addEventListener('scroll', (e) => {
+                window.scrollY > this.scrollValue
+                    ? this.element.classList.add('scrolled')
+                    : this.element.classList.remove('scrolled');
+            });
+        } else {
+            this.element.classList.add('unscrollable');
+        }
     }
 }

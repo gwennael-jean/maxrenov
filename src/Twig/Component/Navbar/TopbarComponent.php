@@ -8,5 +8,5 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('topbar', template: '.components/navbars/topbar.html.twig')]
 class TopbarComponent
 {
-
+    public $scrollable = true;
 }
