@@ -6,6 +6,7 @@ use App\Form\Parameter\ContactParameterType;
 use App\Form\Parameter\GoogleReviewParameterType;
 use App\Form\Parameter\MainParameterType;
 use App\Form\Parameter\SocialNetworkParameterType;
+use App\Form\Parameter\TopbarParameterType;
 use App\Service\ParameterStorage;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -61,6 +62,28 @@ class ParametersController extends AbstractController
 
         return $this->render('admin/parameters.html.twig', [
             'title' => "Contact Parameters",
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/admin/parameters/topbar', name: 'app_admin_parameters_topbar')]
+    public function topbar(Request $request)
+    {
+        $data = $this->parameterStorage->getByDomain('topbar');
+
+        $form = $this->createForm(TopbarParameterType::class, $data);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->parameterStorage->save('topbar', $form->getData());
+
+            $this->addFlash('success', 'Successfully saved parameters');
+            return $this->redirect($this->adminUrlGenerator->setRoute('app_admin_parameters_topbar')->generateUrl());
+        }
+
+        return $this->render('admin/parameters.html.twig', [
+            'title' => "Topbar Parameters",
             'form' => $form->createView()
         ]);
     }

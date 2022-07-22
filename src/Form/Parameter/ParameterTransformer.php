@@ -35,6 +35,7 @@ class ParameterTransformer implements DataTransformerInterface
             switch ($parameter->getName()) {
                 case 'homeJumbotronBackground':
                 case 'homeJumbotronTitleImage':
+                case 'topbarLogo':
                     $data[$parameter->getName()] = null;
                     break;
                 case 'homeGallery':
@@ -57,6 +58,7 @@ class ParameterTransformer implements DataTransformerInterface
             switch ($key) {
                 case 'homeJumbotronBackground':
                 case 'homeJumbotronTitleImage':
+                case 'topbarLogo':
                         $data[$key] = $value instanceof UploadedFile
                             ? $this->saveFile($key, $value)
                             : $this->parameterStorage->get($key);
@@ -67,8 +69,20 @@ class ParameterTransformer implements DataTransformerInterface
             }
         }
 
-        if (!!$data['removeHomeJumbotronTitleImage']) {
+        if (isset($data['removeHomeJumbotronTitleImage']) && !!$data['removeHomeJumbotronTitleImage']) {
             $data['homeJumbotronTitleImage'] = null;
+        }
+
+        if (isset($data['removeHomeJumbotronTitleImage'])) {
+            unset($data['removeHomeJumbotronTitleImage']);
+        }
+
+        if (isset($data['removeTopbarLogo']) && !!$data['removeTopbarLogo']) {
+            $data['topbarLogo'] = null;
+        }
+
+        if (isset($data['removeTopbarLogo'])) {
+            unset($data['removeTopbarLogo']);
         }
 
         return $data;

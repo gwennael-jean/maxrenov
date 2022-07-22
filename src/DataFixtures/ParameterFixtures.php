@@ -13,6 +13,7 @@ class ParameterFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $this->saveDefaultParameters($manager);
+        $this->saveTopbarParameters($manager);
         $this->saveContactParameters($manager);
         $this->saveSocialNetworksParameters($manager);
         $this->saveGoogleReviewParameters($manager);
@@ -25,6 +26,11 @@ class ParameterFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist((new Parameter())
             ->setDomain('default')
             ->setName('homeJumbotronBackground')
+            ->setValue(null));
+
+        $manager->persist((new Parameter())
+            ->setDomain('default')
+            ->setName('homeJumbotronTitleImage')
             ->setValue(null));
 
         $manager->persist((new Parameter())
@@ -45,6 +51,19 @@ class ParameterFixtures extends Fixture implements DependentFixtureInterface
                 ->setName('homeGallery')
                 ->setValue($gallery->getId()));
         }
+    }
+
+    protected function saveTopbarParameters(ObjectManager $manager): void
+    {
+        $manager->persist((new Parameter())
+            ->setDomain('topbar')
+            ->setName('topbarLogo')
+            ->setValue(null));
+
+        $manager->persist((new Parameter())
+            ->setDomain('topbar')
+            ->setName('topbarTitle')
+            ->setValue("Max'Renov"));
     }
 
     protected function saveContactParameters(ObjectManager $manager): void
