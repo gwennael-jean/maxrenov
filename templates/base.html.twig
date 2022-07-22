@@ -15,8 +15,12 @@
         {% endblock %}
     </head>
     <body>
-        {{ component('topbar') }}
+        {% block topbar %}
+            {{ component('topbar') }}
+        {% endblock %}
+
         {% block body %}{% endblock %}
+
         <div class="mt-5">
             {{ component('footer') }}
         </div>
