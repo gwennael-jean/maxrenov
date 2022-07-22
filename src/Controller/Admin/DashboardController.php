@@ -69,6 +69,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::subMenu('Parameters', 'fa-solid fa-cogs')->setSubItems([
             MenuItem::linkToRoute('Main', null, 'app_admin_parameters_default'),
+            MenuItem::linkToRoute('Topbar', null, 'app_admin_parameters_topbar'),
             MenuItem::linkToRoute('Contact', null, 'app_admin_parameters_contact'),
             MenuItem::linkToRoute('Social Networks', null, 'app_admin_parameters_rs'),
             MenuItem::linkToRoute('Google Review', null, 'app_admin_parameters_google_review'),
