@@ -1,7 +1,12 @@
 <nav class="topbar navbar" data-controller="topbar" data-topbar-scroll-value="200" data-topbar-scrollable-value="{{ scrollable ? 1 : 0 }}">
     <div class="container">
         <a class="navbar-brand" href="{{ path('app_home') }}">
-            <img src="{{ asset('images/logo-topbar.png') }}" alt="Logo">
+            {% if logo is not null %}
+                <img src="{{ logo }}" alt="Logo">
+            {% endif %}
+            {% if title is not null %}
+                {{ title }}
+            {% endif %}
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
