@@ -20,11 +20,13 @@
                 <div class="d-flex justify-content-center row row-cols-1 row-cols-md-3 g-4">
                     {% for service in services %}
                         <div class="col">
-                            {{ component('card-service', {
-                                icon: service.icon,
-                                title: service.title,
-                                text: service.description,
-                            }) }}
+                            <a href="{{ path('app_service', { slug: service.slug}) }}" class="bloc-link">
+                                {{ component('card-service', {
+                                    icon: service.icon,
+                                    title: service.title,
+                                    text: service.description,
+                                }) }}
+                            </a>
                         </div>
                     {% endfor %}
                 </div>
