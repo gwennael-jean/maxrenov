@@ -17,6 +17,7 @@
 
 // Import elements
 @import "~bootstrap/scss/type";
+@import "~bootstrap/scss/transitions";
 
 // Import objects
 @import "~bootstrap/scss/containers";
@@ -26,15 +27,17 @@
 @import "~bootstrap/scss/buttons";
 @import "objects/footer";
 @import "objects/google-review";
+@import "objects/link";
 
 // Import components
 @import "~bootstrap/scss/alert";
 @import "~bootstrap/scss/card";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/list-group";
 @import "~bootstrap/scss/modal";
 @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/carousel";
 @import "components/blocs";
 @import "components/cards";
 @import "components/carousel";

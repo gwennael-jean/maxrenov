@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ServiceCrudController extends AbstractCrudController
@@ -44,7 +45,12 @@ class ServiceCrudController extends AbstractCrudController
 
         yield TextField::new('description')
             ->setColumns('col-12');
-        yield FormField::addTab('Media');
+
+        yield FormField::addTab('Page');
+
+        yield TextareaField::new('body')
+            ->hideOnIndex()
+            ->setColumns('col-12');
 
         yield CollectionField::new('medias')
             ->setEntryType(MediaType::class)

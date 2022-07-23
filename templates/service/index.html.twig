@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ service.title | humanize }} | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="mb-5">
+        {{ component('jumbotron', {
+            class: 'main-jumbotron',
+            background: asset('build/images/jumbotron/jumbotron-contact.jpg'),
+            title: service.title,
+            subtitle: service.description,
+        }) }}
+    </div>
+    <div class="mt-5">
+        <div class="container">
+            <div class="mb-5 mx-0 mx-md-5">
+                <div class="d-flex flex-column flex-md-row align-items-center">
+                    <div class="mb-5 mb-md-0 me-md-5 flex-shrink-1">
+                        <i class="{{ service.icon }} fa-10x"></i>
+                    </div>
+                    <div class="ms-md-3 w-100">
+                        {{ service.body }}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div id="carousel-controls" class="carousel" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        {% for media in service.medias %}
+                            <button type="button"
+                                    data-bs-target="#carousel-controls"
+                                    class="{{ loop.first ? 'active' : '' }}"
+                                    data-bs-slide-to="{{ loop.index - 1 }}"></button>
+                        {% endfor %}
+                    </div>
+                    <div class="carousel-inner">
+                        {% for media in service.medias %}
+                            <div class="carousel-item {{ loop.first ? 'active' : '' }}">
+                                <img src="{{ asset('uploads/' ~ media_manager.context[media.context].path ~ '/' ~ media.path) }}" class="d-block w-100" />
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-controls" data-bs-slide="prev">
+                        <i class="fas fa-2x fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-controls" data-bs-slide="next">
+                        <i class="fas fa-2x fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
