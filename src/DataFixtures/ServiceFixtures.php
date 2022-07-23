@@ -16,6 +16,7 @@ class ServiceFixtures extends Fixture
             $service = (new Service())
                 ->setTitle($data['title'])
                 ->setIcon($data['icon'])
+                ->setBody($data['body'])
                 ->setDescription($data['description']);
 
             foreach ($data['medias'] as $media) {
@@ -38,6 +39,7 @@ class ServiceFixtures extends Fixture
                 'title' => 'Électricité',
                 'icon' => 'fas fa-bolt',
                 'description' => ' Installation, dépannage et maintenance',
+                'body' => 'His cognitis Gallus ut serpens adpetitus telo vel saxo iamque spes extremas opperiens et succurrens saluti suae quavis ratione colligi omnes iussit armatos et cum starent attoniti, districta dentium acie stridens adeste inquit viri fortes mihi periclitanti vobiscum.',
                 'medias' => [
                     [
                         'context' => 'default',
@@ -57,6 +59,7 @@ class ServiceFixtures extends Fixture
                 'title' => 'Chauffage',
                 'icon' => 'fa-solid fa-house-fire',
                 'description' => 'Chauffage électrique et sèche serviette',
+                'body' => 'His cognitis Gallus ut serpens adpetitus telo vel saxo iamque spes extremas opperiens et succurrens saluti suae quavis ratione colligi omnes iussit armatos et cum starent attoniti, districta dentium acie stridens adeste inquit viri fortes mihi periclitanti vobiscum.',
                 'medias' => [
                     [
                         'context' => 'default',
@@ -76,6 +79,7 @@ class ServiceFixtures extends Fixture
                 'title' => 'Internet',
                 'icon' => 'fa-solid fa-wifi',
                 'description' => 'Câblage internet RJ45',
+                'body' => 'His cognitis Gallus ut serpens adpetitus telo vel saxo iamque spes extremas opperiens et succurrens saluti suae quavis ratione colligi omnes iussit armatos et cum starent attoniti, districta dentium acie stridens adeste inquit viri fortes mihi periclitanti vobiscum.',
                 'medias' => [
                     [
                         'context' => 'default',
@@ -91,6 +95,7 @@ class ServiceFixtures extends Fixture
                 'title' => 'Téléphonie',
                 'icon' => 'fa-solid fa-phone',
                 'description' => 'Câblage téléphonique RJ11',
+                'body' => 'His cognitis Gallus ut serpens adpetitus telo vel saxo iamque spes extremas opperiens et succurrens saluti suae quavis ratione colligi omnes iussit armatos et cum starent attoniti, districta dentium acie stridens adeste inquit viri fortes mihi periclitanti vobiscum.',
                 'medias' => [
                     [
                         'context' => 'default',
@@ -106,6 +111,7 @@ class ServiceFixtures extends Fixture
                 'title' => 'VMC',
                 'icon' => 'fa-solid fa-wind',
                 'description' => ' Installation et dépannage',
+                'body' => 'His cognitis Gallus ut serpens adpetitus telo vel saxo iamque spes extremas opperiens et succurrens saluti suae quavis ratione colligi omnes iussit armatos et cum starent attoniti, districta dentium acie stridens adeste inquit viri fortes mihi periclitanti vobiscum.',
                 'medias' => [
                     [
                         'context' => 'default',

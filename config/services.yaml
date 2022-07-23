@@ -36,3 +36,7 @@ services:
     App\EventListener\Media\UploadListener:
         tags:
             - { name: doctrine.orm.entity_listener }
+
+    App\EventListener\Service\SluggableListener:
+        tags:
+            - { name: doctrine.orm.entity_listener }
