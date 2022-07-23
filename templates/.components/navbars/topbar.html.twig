@@ -10,7 +10,12 @@
                 </div>
             {% endif %}
         </a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topbar" aria-controls="topbar" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="topbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ path('app_home') }}">

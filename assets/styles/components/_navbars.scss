@@ -1,6 +1,6 @@
 .navbar.topbar {
   @extend .fixed-top;
-  @extend .navbar-expand;
+  @extend .navbar-expand-sm;
   transition: all .5s ease;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -9,12 +9,25 @@
     color: $white;
   }
 
+  .navbar-toggler {
+    color: white;
+    border: 0 none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
   &.scrolled {
     @extend .navbar-light;
     @extend .bg-light;
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+
+    .navbar-toggler {
+      color: inherit;
+    }
   }
 
   &.unscrollable {
@@ -23,6 +36,18 @@
     @extend .bg-light;
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  @include media-breakpoint-down(xs) {
+    .navbar-nav {
+      @extend .flex-row;
+      @extend .justify-content-around;
+
+      .nav-item {
+        padding: 0 .5rem;
+        text-align: center;
+      }
+    }
   }
 }
